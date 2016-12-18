@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/PaulLeCam/react-leaflet",
   "dependencies": {
+    "leaflet.gridlayer.googlemutant": "^0.4.3",
     "lodash": "^4.0.0",
     "warning": "^3.0.0"
   },

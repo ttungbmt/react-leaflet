@@ -25,3 +25,7 @@ export TileLayer from './TileLayer'
 export Tooltip from './Tooltip'
 export WMSTileLayer from './WMSTileLayer'
 export ZoomControl from './ZoomControl'
+
+export GoogleLayer from './GoogleLayer'
+
+

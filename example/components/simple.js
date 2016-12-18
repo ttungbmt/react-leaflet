@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Map, TileLayer, Marker, Popup } from '../../src'
+import { Map, TileLayer, Marker, Popup, GoogleLayer } from '../../src'
 
 export default class SimpleExample extends Component {
   state = {
@@ -12,9 +12,8 @@ export default class SimpleExample extends Component {
     const position = [this.state.lat, this.state.lng]
     return (
       <Map center={position} zoom={this.state.zoom}>
-        <TileLayer
-          attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+        <GoogleLayer
+
         />
         <Marker position={position}>
           <Popup>
