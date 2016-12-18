@@ -1,9 +1,9 @@
 /* @flow */
-import React, {PropTypes}  from 'react';
-import GridLayer from './GridLayer';
+import React, {PropTypes}  from 'react'
+import GridLayer from '../GridLayer'
 import L from 'leaflet'
 
-require('leaflet.gridlayer.googlemutant')
+import 'leaflet.gridlayer.googlemutant'
 
 export default class GoogleLayer extends GridLayer {
     static propTypes = {

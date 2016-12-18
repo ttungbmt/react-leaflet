@@ -1,3 +1,6 @@
+import L from 'leaflet'
+L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.0.2/dist/images/'
+
 export * as PropTypes from './types'
 
 export AttributionControl from './AttributionControl'
@@ -26,6 +29,10 @@ export Tooltip from './Tooltip'
 export WMSTileLayer from './WMSTileLayer'
 export ZoomControl from './ZoomControl'
 
-export GoogleLayer from './GoogleLayer'
+export GoogleLayer from './layers/GoogleLayer'
+export DynamicMapLayer from './esri/DynamicMapLayer'
+
+export FullscreenControl from './controls/FullscreenControl'
+
 
 
