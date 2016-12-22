@@ -1,5 +1,6 @@
 import L from 'leaflet'
 L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.0.2/dist/images/'
+import './assets/scss/leaflet-custom.css'
 
 export * as PropTypes from './types'
 

@@ -17,7 +17,7 @@ export default class MapLayout extends Component {
     }
 
     render () {
-        let geom = { "type": "FeatureCollection", "features": [{ "type": "Feature", "properties": {}, "geometry": { "type": "Polygon", "coordinates": [[[106.57424926757812, 10.714586690981509], [106.57424926757812, 10.852188818037952], [106.76101684570312, 10.852188818037952], [106.76101684570312, 10.714586690981509], [106.57424926757812, 10.714586690981509]]]}}]};
+        var geom = { "type": "FeatureCollection", "features": [{ "type": "Feature", "properties": {}, "geometry": { "type": "Polygon", "coordinates": [[[106.57424926757812, 10.714586690981509], [106.57424926757812, 10.852188818037952], [106.76101684570312, 10.852188818037952], [106.76101684570312, 10.714586690981509], [106.57424926757812, 10.714586690981509]]]}}]}
 
         const mapOptions = {
             center: [this.state.lat, this.state.lng],
@@ -32,24 +32,32 @@ export default class MapLayout extends Component {
                 <FullscreenControl />
 
                 <LayersControl>
-                    <BaseLayer name='GIS nền' checked>
+                    <BaseLayer name='GIS nền'>
                         <WMSTileLayer url='http://pcd.hcmgis.vn/geoserver2/ows?' layers='hcm_map:hcm_map'/>
                     </BaseLayer>
-                    <BaseLayer name='Google'>
-                        <GoogleLayer type="roadmap" />
+                    <BaseLayer name='Google' checked>
+                        <GoogleLayer
+                            tile={true}
+                            boundary={geom}
+                            type="roadmap" />
                     </BaseLayer>
                     <BaseLayer name='Mapbox'>
                         <TileLayer
+                            boundary={geom}
                             url='https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'
                             id="mapbox.streets"
                             accessToken="pk.eyJ1IjoidHR1bmdibXQiLCJhIjoiY2EzNDFhZjU4ZThkNzY5NTU3M2U1YWFiNmY4OTE3OWQifQ.Bo1ss5J4UjPPOjmq9S3VQw"
                             attribution='Map data &copy; <a href="http://mapbox.com">Mapbox</a>'/>
                     </BaseLayer>
                     <BaseLayer name='Ảnh hàng không'>
-                        <TileLayer url='http://hcmgisportal.vn/basemap/cache_lidar/{z}/{x}/{y}.jpg'/>
+                        <TileLayer
+                            boundary={geom}
+                            url='http://hcmgisportal.vn/basemap/cache_lidar/{z}/{x}/{y}.jpg'/>
                     </BaseLayer>
                     <BaseLayer name='Ảnh vệ tinh'>
                         <GoogleLayer
+                            tile={true}
+                            boundary={geom}
                             type="satellite" />
                     </BaseLayer>
                 </LayersControl>

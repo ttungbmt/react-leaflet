@@ -40,6 +40,7 @@
   "dependencies": {
     "esri-leaflet": "^2.0.6",
     "exports-loader": "^0.6.3",
+    "leaflet-boundary-canvas": "^1.0.0",
     "leaflet.fullscreen": "^1.4.2",
     "leaflet.gridlayer.googlemutant": "^0.4.3",
     "lodash": "^4.0.0",

@@ -10,6 +10,7 @@ export default class GoogleLayer extends GridLayer {
         type: PropTypes.string,
         styles: PropTypes.array,
         tile: PropTypes.bool,
+        boundary: PropTypes.object,
     };
 
     static defaultProps = {
@@ -17,9 +18,8 @@ export default class GoogleLayer extends GridLayer {
     };
 
     componentWillMount() {
-
         super.componentWillMount();
-        const {tile, ...props} = this.props;
+        const {tile, boundary, ...props} = this.props;
 
         let type = this.convertType(this.props.type)
 
@@ -30,8 +30,6 @@ export default class GoogleLayer extends GridLayer {
                 ...this.getOptions(this.props)
             }) :
             L.gridLayer.googleMutant(this.getOptions(this.props))
-
-
     }
 
     convertType(mapType: string){
